@@ -331,10 +331,16 @@ namespace HepMC {
 	/// \class  vertex_const_iterator
 	/// HepMC::GenEvent::vertex_const_iterator
 	/// is used to iterate over all vertices in the event.
-	class vertex_const_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenVertex*,ptrdiff_t>{
+	class vertex_const_iterator {
 	    // Iterates over all vertices in this event
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenVertex*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    /// constructor requiring vertex information
 	    vertex_const_iterator(
 		const 
@@ -388,10 +394,16 @@ namespace HepMC {
 	/// \class  vertex_iterator
 	/// HepMC::GenEvent::vertex_iterator
 	/// is used to iterate over all vertices in the event.
-	class vertex_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenVertex*,ptrdiff_t>{
+	class vertex_iterator {
 	    // Iterates over all vertices in this event
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenVertex*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    /// constructor requiring vertex information
 	    vertex_iterator( 
 		const 
@@ -461,10 +473,16 @@ namespace HepMC {
 	/// \class  particle_const_iterator
 	/// HepMC::GenEvent::particle_const_iterator 
 	/// is used to iterate over all particles in the event.
-	class particle_const_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenParticle*,ptrdiff_t>{
+	class particle_const_iterator {
 	    // Iterates over all vertices in this event
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenParticle*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    /// iterate over particles
 	    particle_const_iterator(
 		const std::map<int,HepMC::GenParticle*>::const_iterator& i )
@@ -517,10 +535,16 @@ namespace HepMC {
 	/// \class  particle_iterator
 	/// HepMC::GenEvent::particle_iterator 
 	/// is used to iterate over all particles in the event.
- 	class particle_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenParticle*,ptrdiff_t>{
+ 	class particle_iterator {
 	    // Iterates over all vertices in this event
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenParticle*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    /// iterate over particles
 	    particle_iterator( const std::map<int,HepMC::GenParticle*>::iterator& i )
 		: m_map_iterator( i ) {}

@@ -191,9 +191,15 @@ namespace HepMC {
 	/// This is not a recursive iterator ... it is a building block
 	/// for the public iterators and is intended for internal use only.
 	/// The acceptable Iterator Ranges are: family, parents, children
-	class edge_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenParticle*,ptrdiff_t>{
+	class edge_iterator {
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenParticle*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    edge_iterator();
 	    /// used to set limits on the iteration
 	    edge_iterator( const GenVertex& vtx, IteratorRange range =family );
@@ -260,9 +266,15 @@ namespace HepMC {
 	/// (by "chopping" the edges connecting to an already visited
 	/// vertex) and returning the vertices in POST ORDER traversal.
 	///
-	class vertex_iterator :
-	  public std::iterator<std::forward_iterator_tag,HepMC::GenVertex*,ptrdiff_t>{
+	class vertex_iterator {
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = HepMC::GenVertex*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    vertex_iterator();
 	    /// used to set limits on the iteration
 	    vertex_iterator( GenVertex& vtx_root, IteratorRange range );
@@ -336,9 +348,15 @@ namespace HepMC {
 	/// then children ... in this way each particle is associated
 	/// to exactly one vertex and so it is returned exactly once.
 	/// Is made friend so that it can access protected edge iterator
- 	class particle_iterator :
-	  public std::iterator<std::forward_iterator_tag,GenParticle*,ptrdiff_t>{
+        class particle_iterator {
 	public:
+            // C++17 compliant iterator definition
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = GenParticle*;
+            using difference_type = ptrdiff_t;
+            using pointer = void;   // Not used
+            using reference = void; // Not used
+
 	    particle_iterator();
 	    /// used to set limits on the iteration
 	    particle_iterator( GenVertex& vertex_root, IteratorRange range );
